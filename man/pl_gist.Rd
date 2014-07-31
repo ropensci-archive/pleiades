@@ -34,7 +34,7 @@ then \code{pl_gist} will simply read those options.
 }
 \examples{
 \dontrun{
-xxx <- pl_place(place_id=579885)
+xxx <- pl_places(place_id=579885)
 pl_gist(x=xxx)
 }
 }
