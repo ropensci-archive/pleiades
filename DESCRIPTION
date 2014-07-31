@@ -1,0 +1,20 @@
+Package: pleiades
+Title: R interface to Pleiades database
+Description: This package provides a set of functions for interacting with the
+    Pleiades API, including getting status datat, places data, and creating a
+    geojson based map on Github gists.
+Version: 0.0.1.99
+Date: 2014-07-31
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com")
+License: MIT + file LICENSE
+URL: https://github.com/sckott/pleiades
+BugReports: http://www.github.com/sckott/pleiades/issues
+Imports:
+    httr,
+    jsonlite,
+    assertthat
+Suggests:
+    testthat,
+    roxygen2,
+    knitr
