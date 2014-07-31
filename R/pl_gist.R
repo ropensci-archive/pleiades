@@ -23,7 +23,7 @@
 #' written on your machinee, the url for the gist, and an embed script in the console.
 #' 
 #' @examples \dontrun{
-#' xxx <- pl_place(place_id=579885)
+#' xxx <- pl_places(place_id=579885)
 #' pl_gist(x=xxx)
 #' }
 pl_gist <- function(x, outfile=NULL, description = "", browse = TRUE){

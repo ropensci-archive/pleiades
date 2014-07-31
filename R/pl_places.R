@@ -1,5 +1,6 @@
 #' Get data for a place given a place ID
 #' 
+#' @export
 #' @param place_id A place ID
 #' @param ... Curl debugging arguments, see \code{httr::config}
 #' @examples \dontrun{
