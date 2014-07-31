@@ -3,7 +3,7 @@ pleiades
 
 [![Build Status](https://api.travis-ci.org/sckott/pleiades.png)](https://travis-ci.org/sckott/pleiades)
 
-A general purpose R interface to [Digital Ocean](https://www.digitalocean.com/)
+An R client for [Pleiades](http://pleiades.stoa.org/home)
 
 ### Pleiades info
 
