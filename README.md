@@ -94,4 +94,4 @@ Embed gist with <script src="https://gist.github.com/sckott/cb25d4e497c9f0abe86f
 
 Which opens up the gist in your default browser, as long as `browse=TRUE` (default).
 
-<script src="https://gist.github.com/sckott/cb25d4e497c9f0abe86f.js"></script>
+![](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
