@@ -1,97 +1,98 @@
 pleiades
 =======
 
+
+
 [![Build Status](https://api.travis-ci.org/ropensci/pleiades.png)](https://travis-ci.org/ropensci/pleiades)
 
 An R client for [Pleiades](http://pleiades.stoa.org/home)
 
-### Pleiades info
+## Pleiades info
 
 + [Homepage](http://pleiades.stoa.org/home)
 + [API docs](http://api.pleiades.stoa.org/)
 
+## Quick start
 
-### Quick start
+### Install
 
-#### Install
 
-```coffee
+```r
+install.packages("devtools")
 devtools::install_github("ropensci/pleiades")
+```
+
+
+```r
 library("pleiades")
 ```
 
-#### Status
+### Status
 
-```coffee
+
+```r
 pl_status()
+#> $num_places
+#> [1] 34764
+#> 
+#> $num_locations
+#> [1] 38700
+#> 
+#> $num_names
+#> [1] 30163
 ```
 
-```coffee
-$num_places
-[1] 34764
+### Places
 
-$num_locations
-[1] 38698
+Just a subst of output for brevity
 
-$num_names
-[1] 30279
+
+```r
+pl_places(place_id=579885)[1:2]
+#> $connectsWith
+#> $connectsWith[[1]]
+#> [1] "579888"
+#> 
+#> $connectsWith[[2]]
+#> [1] "580123"
+#> 
+#> $connectsWith[[3]]
+#> [1] "146086514"
+#> 
+#> 
+#> $recent_changes
+#> $recent_changes[[1]]
+#> $recent_changes[[1]]$modified
+#> [1] "2013-08-14T13:24:29Z"
+#> 
+#> $recent_changes[[1]]$principal
+#> [1] "arabinowitz"
+#> 
+#> 
+#> $recent_changes[[2]]
+#> $recent_changes[[2]]$modified
+#> [1] "2013-07-16T19:29:26Z"
+#> 
+#> $recent_changes[[2]]$principal
+#> [1] "jbecker"
 ```
 
-#### Places
-
-```coffee
-pl_places(place_id=579885)
-```
-
-```coffee
-$connectsWith
-$connectsWith[[1]]
-[1] "579888"
-
-$connectsWith[[2]]
-[1] "580123"
-
-$connectsWith[[3]]
-[1] "146086514"
+### Create geojson map on Github Gists
 
 
-$recent_changes
-$recent_changes[[1]]
-$recent_changes[[1]]$modified
-[1] "2013-08-14T13:24:29Z"
-
-$recent_changes[[1]]$principal
-[1] "arabinowitz"
-
-
-$recent_changes[[2]]
-$recent_changes[[2]]$modified
-[1] "2013-07-16T19:29:26Z"
-
-$recent_changes[[2]]$principal
-[1] "jbecker"
-
-
-
-$description
-[1] "A major Greek city-state and the principal city of Attika."
-
-...Cutoff
-```
-
-#### Create geojson map on Github Gists
-
-```coffee
+```r
 res <- pl_place(place_id=579885)
 pl_gist(res)
-```
-
-```coffee
-Your gist has been published
-View gist at https://gist.github.com/sckott/cb25d4e497c9f0abe86f
-Embed gist with <script src="https://gist.github.com/sckott/cb25d4e497c9f0abe86f.js"></script>
 ```
 
 Which opens up the gist in your default browser, as long as `browse=TRUE` (default).
 
 ![](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
+
+### Meta
+
+* Please report any issues or bugs](https://github.com/ropensci/pleiades/issues).
+* License: MIT
+* Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

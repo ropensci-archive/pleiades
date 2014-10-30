@@ -1,6 +1,15 @@
 pleiades
 =======
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE, 
+  message = FALSE
+)
+```
+
 [![Build Status](https://api.travis-ci.org/ropensci/pleiades.png)](https://travis-ci.org/ropensci/pleiades)
 
 An R client for [Pleiades](http://pleiades.stoa.org/home)
@@ -31,8 +40,10 @@ pl_status()
 
 ### Places
 
+Just a subst of output for brevity
+
 ```{r}
-pl_places(place_id=579885)
+pl_places(place_id=579885)[1:2]
 ```
 
 ### Create geojson map on Github Gists
