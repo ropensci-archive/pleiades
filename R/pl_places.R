@@ -1,8 +1,8 @@
 #' Get data for a place given a place ID
-#' 
+#'
 #' @export
-#' @param place_id A place ID
-#' @param ... Curl debugging arguments, see \code{httr::config}
+#' @param place_id (integer/numeric) A place ID
+#' @param ... Curl debugging arguments passed on to \code{\link[httr]{GET}}
 #' @examples \dontrun{
 #' pl_places(place_id=579885)
 #' }
