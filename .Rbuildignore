@@ -6,3 +6,4 @@ vignettes/margins.sty
 Makefile
 ^.*\.Rproj$
 ^\.Rproj\.user$
+README.Rmd
