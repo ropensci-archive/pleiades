@@ -3,6 +3,7 @@
 #' @export
 #' @param path (character) Path to cache data in.
 #' @param overwrite (logical) Overwrite existing files?
+#' @param force (logical) Force update of the cache. Default: FALSE
 #' @param ... Further args passed on to \code{\link[httr]{GET}}
 #' @param which (character) One of locations, names, or places.
 #' @param prompt (logical) Prompt before clearing all files in cache? No prompt used when DOIs

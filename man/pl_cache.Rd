@@ -13,6 +13,8 @@ pl_cache_clear(path = "~/.pleiades/", which = NULL, prompt = TRUE)
 
 \item{overwrite}{(logical) Overwrite existing files?}
 
+\item{force}{(logical) Force update of the cache. Default: FALSE}
+
 \item{...}{Further args passed on to \code{\link[httr]{GET}}}
 
 \item{which}{(character) One of locations, names, or places.}
