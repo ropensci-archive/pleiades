@@ -1,8 +1,8 @@
 #' Get Pleiades status data, number of places, number of locations, number of names.
-#' 
+#'
 #' @export
-#' @import httr jsonlite assertthat
-#' 
+#' @import httr jsonlite
+#'
 #' @param ... Curl debugging arguments, see \code{httr::config}
 #' @examples \dontrun{
 #' pl_status()
