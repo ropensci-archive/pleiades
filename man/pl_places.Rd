@@ -6,9 +6,9 @@
 pl_places(place_id, ...)
 }
 \arguments{
-\item{place_id}{A place ID}
+\item{place_id}{(integer/numeric) A place ID}
 
-\item{...}{Curl debugging arguments, see \code{httr::config}}
+\item{...}{Curl debugging arguments passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Get data for a place given a place ID

@@ -13,5 +13,4 @@ pl_search <- function(query, ...){
   # load data
   # search for data
   # return data
-  message("fxn not written yet")
 }

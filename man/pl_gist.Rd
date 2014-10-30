@@ -3,39 +3,42 @@
 \alias{pl_gist}
 \title{Make an interactive map to view in the browser as a Github gist}
 \usage{
-pl_gist(x, outfile = NULL, description = "", browse = TRUE)
+pl_gist(x, file = NULL, description = "", public = TRUE, browse = TRUE,
+  ...)
 }
 \arguments{
-\item{x}{Output from pl_places}
+\item{x}{Output from \code{\link{pl_places}}}
 
-\item{outfile}{File name (without file extension) for your geojson file. Default is 'gistmap'.}
+\item{file}{(character) File name (without file extension) for your geojson file. Default is
+'gistmap'.}
 
-\item{description}{Description for the Github gist, or leave to default (=no description)}
+\item{description}{(character) Description for the Github gist, or leave to default
+(=no description)}
 
-\item{browse}{If TRUE (default) the map opens in your default browser.}
+\item{public}{(logical) Whether gist is public (default: TRUE)}
+
+\item{browse}{(logical) If TRUE (default) the map opens in your default browser.}
+
+\item{...}{Further args passed on to \code{\link[httr]{POST}}}
 }
 \value{
-Creates a gist on your Github account, and prints out where the geojson file was
-written on your machinee, the url for the gist, and an embed script in the console.
+Creates a gist on your Github account
 }
 \description{
-You will be asked ot enter you Github credentials (username, password) during
-each session, but only once for each session. Alternatively, you could enter
-your credentials into your .Rprofile file with the entries
-
+There are two ways to authorise gistr to work with your GitHub account:
 \itemize{
- \item options(github.username = 'your_github_username')
- \item options(github.password = 'your_github_password')
+ \item Generate a personal access token at
+ https://help.github.com/articles/creating-an-access-token-for-command-line-use and record in
+ the GITHUB_PAT envar.
+ \item Interactively login into your GitHub account and authorise with OAuth.
 }
 
-then \code{pl_gist} will simply read those options.
-
-\code{pl_gist} has modified code from the rCharts package by Ramnath Vaidyanathan
+Using the GITHUB_PAT option is recommended.
 }
 \examples{
 \dontrun{
-xxx <- pl_places(place_id=579885)
-pl_gist(x=xxx)
+x <- pl_places(place_id=579885)
+pl_gist(x)
 }
 }
 
