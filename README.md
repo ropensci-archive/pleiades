@@ -44,7 +44,7 @@ pl_status()
 
 ### Places
 
-Just a subst of output for brevity
+`pl_places` uses the Pleiades API. Just a subst of output for brevity
 
 
 ```r
@@ -75,6 +75,116 @@ pl_places(place_id=579885)[1:2]
 #> 
 #> $recent_changes[[2]]$principal
 #> [1] "jbecker"
+```
+
+### Search bulk files locally
+
+Pleiades nicely provides their bulk data (for locations, names, and places) in various formats, including `.csv`. We've created three functions `pl_search_loc()`, `pl_search_names()`, and `pl_search_places()` to search each of those datasets. As these are relatively large (approx 40K rows by 30 columns), `dplyr` is a nice approach to dealing with big-ish data. At this time `dplyr` is a dependency. 
+
+First, run `pl_cache()` first to get data. 
+
+
+```r
+pl_cache()
+```
+
+Second, search locations, names, or places. You can return the data (that is, a `dplyr` representation of the data) if you don't pass anything to the function call:
+
+
+```r
+pl_search_loc()
+#> Source: sqlite 3.8.6 [~/.pleiades//pleiades_locations.sqlite3]
+#> From: locations [38,641 x 26]
+#> 
+#>                                                     authors avgRating
+#> 1  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 2  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 3  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 4  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 5  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 6  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 7  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 8  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 9  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 10 Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> ..                                                      ...       ...
+#> Variables not shown: bbox (chr), created (chr), creators (chr),
+#>   currentVersion (int), description (chr), featureTypes (chr), geometry
+#>   (chr), id (chr), locationPrecision (chr), maxDate (dbl), minDate (dbl),
+#>   modified (chr), numRatings (int), path (chr), pid (chr), reprLat (dbl),
+#>   reprLatLong (chr), reprLong (dbl), tags (chr), timePeriods (chr),
+#>   timePeriodsKeys (chr), timePeriodsRange (chr), title (chr), uid (chr)
+```
+
+Or you can submit a query:
+
+
+```r
+pl_search_loc("SELECT * FROM locations limit 5")
+#> Source: sqlite 3.8.6 [~/.pleiades//pleiades_locations.sqlite3]
+#> From: <derived table> [?? x 26]
+#> 
+#>                                                     authors avgRating
+#> 1  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 2  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 3  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 4  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> 5  Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies        NA
+#> ..                                                      ...       ...
+#> Variables not shown: bbox (chr), created (chr), creators (chr),
+#>   currentVersion (int), description (chr), featureTypes (chr), geometry
+#>   (chr), id (chr), locationPrecision (chr), maxDate (dbl), minDate (dbl),
+#>   modified (chr), numRatings (int), path (chr), pid (chr), reprLat (dbl),
+#>   reprLatLong (chr), reprLong (dbl), tags (chr), timePeriods (chr),
+#>   timePeriodsKeys (chr), timePeriodsRange (chr), title (chr), uid (chr)
+```
+
+Search names
+
+
+```r
+pl_search_names("SELECT * FROM names limit 5")
+#> Source: sqlite 3.8.6 [~/.pleiades//pleiades_names.sqlite3]
+#> From: <derived table> [?? x 28]
+#> 
+#>                                                                authors
+#> 1  Spann, P., R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
+#> 2             Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> 3             Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> 4             Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> 5             Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> ..                                                                 ...
+#> Variables not shown: avgRating (dbl), bbox (chr), created (chr), creators
+#>   (chr), currentVersion (int), description (chr), extent (chr), id (chr),
+#>   locationPrecision (chr), maxDate (dbl), minDate (dbl), modified (chr),
+#>   nameAttested (chr), nameLanguage (chr), nameTransliterated (chr),
+#>   numRatings (int), path (chr), pid (chr), reprLat (dbl), reprLatLong
+#>   (chr), reprLong (dbl), tags (chr), timePeriods (chr), timePeriodsKeys
+#>   (chr), timePeriodsRange (chr), title (chr), uid (chr)
+```
+
+Search places
+
+
+```r
+pl_search_places("SELECT * FROM places limit 5")
+#> Source: sqlite 3.8.6 [~/.pleiades//pleiades_places.sqlite3]
+#> From: <derived table> [?? x 26]
+#> 
+#>                                                                       authors
+#> 1             Spann, P., DARMC, R. Talbert, R. Warner, S. Gillies, T. Elliott
+#> 2         Spann, P., R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
+#> 3                    Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> 4  Spann, P., DARMC, R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
+#> 5                    Spann, P., R. Warner, T. Elliott, R. Talbert, S. Gillies
+#> ..                                                                        ...
+#> Variables not shown: bbox (chr), connectsWith (chr), created (chr),
+#>   creators (chr), currentVersion (int), description (chr), extent (chr),
+#>   featureTypes (chr), geoContext (chr), hasConnectionsWith (chr), id
+#>   (dbl), locationPrecision (chr), maxDate (dbl), minDate (dbl), modified
+#>   (chr), path (chr), reprLat (dbl), reprLatLong (chr), reprLong (dbl),
+#>   tags (chr), timePeriods (chr), timePeriodsKeys (chr), timePeriodsRange
+#>   (chr), title (chr), uid (chr)
 ```
 
 ### Create geojson map on Github Gists

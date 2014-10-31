@@ -40,10 +40,44 @@ pl_status()
 
 ### Places
 
-Just a subst of output for brevity
+`pl_places` uses the Pleiades API. Just a subst of output for brevity
 
 ```{r}
 pl_places(place_id=579885)[1:2]
+```
+
+### Search bulk files locally
+
+Pleiades nicely provides their bulk data (for locations, names, and places) in various formats, including `.csv`. We've created three functions `pl_search_loc()`, `pl_search_names()`, and `pl_search_places()` to search each of those datasets. As these are relatively large (approx 40K rows by 30 columns), `dplyr` is a nice approach to dealing with big-ish data. At this time `dplyr` is a dependency. 
+
+First, run `pl_cache()` first to get data. 
+
+```{r eval=FALSE}
+pl_cache()
+```
+
+Second, search locations, names, or places. You can return the data (that is, a `dplyr` representation of the data) if you don't pass anything to the function call:
+
+```{r locations}
+pl_search_loc()
+```
+
+Or you can submit a query:
+
+```{r locations_query}
+pl_search_loc("SELECT * FROM locations limit 5")
+```
+
+Search names
+
+```{r names}
+pl_search_names("SELECT * FROM names limit 5")
+```
+
+Search places
+
+```{r places}
+pl_search_places("SELECT * FROM places limit 5")
 ```
 
 ### Create geojson map on Github Gists
