@@ -11,6 +11,10 @@
 #' data, then create a SQLite database, and create the pointer to it. Subsequent calls should
 #' be very fast.
 #' @examples \dontrun{
+#' pl_search_loc()
+#' pl_search_names()
+#' pl_search_places()
+#'
 #' pl_search_loc("SELECT * FROM locations limit 5")
 #' pl_search_names(query = "SELECT * FROM names limit 5")
 #' pl_search_places("SELECT * FROM places limit 5")
@@ -28,7 +32,7 @@ pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
 
 #' @export
 #' @rdname pl_search_loc
-pl_search_names <- function(query, path = "~/.pleiades/", ...){
+pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
   if(!check_for_sql(path, 'names')){
     dat <- read_csv(path, 'names')
     con <- make_sql_conn(path, 'names')
@@ -36,12 +40,12 @@ pl_search_names <- function(query, path = "~/.pleiades/", ...){
   } else {
     con <- make_sql_conn(path, 'names')
   }
-  tbl(con, sql(query), ...)
+  if(!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "names")
 }
 
 #' @export
 #' @rdname pl_search_loc
-pl_search_places <- function(query, path = "~/.pleiades/", ...){
+pl_search_places <- function(query = NULL, path = "~/.pleiades/", ...){
   if(!check_for_sql(path, 'places')){
     dat <- read_csv(path, 'places')
     con <- make_sql_conn(path, 'places')
@@ -49,7 +53,7 @@ pl_search_places <- function(query, path = "~/.pleiades/", ...){
   } else {
     con <- make_sql_conn(path, 'places')
   }
-  tbl(con, sql(query), ...)
+  if(!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "places")
 }
 
 getpath <- function(path, x){

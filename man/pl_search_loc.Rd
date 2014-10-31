@@ -7,9 +7,9 @@
 \usage{
 pl_search_loc(query = NULL, path = "~/.pleiades/", ...)
 
-pl_search_names(query, path = "~/.pleiades/", ...)
+pl_search_names(query = NULL, path = "~/.pleiades/", ...)
 
-pl_search_places(query, path = "~/.pleiades/", ...)
+pl_search_places(query = NULL, path = "~/.pleiades/", ...)
 }
 \arguments{
 \item{query}{A place ID. If left NULL, returns the table, which is of class \code{tbl},
@@ -29,6 +29,10 @@ be very fast.
 }
 \examples{
 \dontrun{
+pl_search_loc()
+pl_search_names()
+pl_search_places()
+
 pl_search_loc("SELECT * FROM locations limit 5")
 pl_search_names(query = "SELECT * FROM names limit 5")
 pl_search_places("SELECT * FROM places limit 5")
