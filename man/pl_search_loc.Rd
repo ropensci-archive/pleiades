@@ -29,6 +29,8 @@ be very fast.
 }
 \examples{
 \dontrun{
+pl_cache()
+
 pl_search_loc()
 pl_search_names()
 pl_search_places()
