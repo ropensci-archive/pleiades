@@ -26,18 +26,20 @@ which can then be passed on to other \code{dplyr} functions.}
 This function searches a locally created SQLite database created from csv files.
 }
 \details{
-On the first query if not run before, the function takes a bit to load the raw csv
-data, then create a SQLite database, and create the pointer to it. Subsequent calls should
-be very fast.
+On the first query if not run before, the function takes a bit to get the raw data
+(if not already gotten), temporarily load the raw csv data, then create a SQLite database,
+and create the pointer to it. Subsequent calls should be very fast.
+
+There is a function \code{\link{pl_cache}}, used to download the raw csv files. That function
+is run internally in these functions if you have not run it before, or if only some fo the files
+are present.
 }
 \examples{
 \dontrun{
-pl_cache()
-
+pl_search()
 pl_search_loc()
 pl_search_names()
 pl_search_places()
-pl_search()
 
 pl_search_loc("SELECT * FROM locations limit 5")
 pl_search_names("SELECT * FROM names limit 5")

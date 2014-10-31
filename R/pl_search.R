@@ -7,16 +7,18 @@
 #' which can then be passed on to other \code{dplyr} functions.
 #' @param path (character) Path to cache data in.
 #' @param ... Further args passed on to \code{\link[dplyr]{tbl}}
-#' @details On the first query if not run before, the function takes a bit to load the raw csv
-#' data, then create a SQLite database, and create the pointer to it. Subsequent calls should
-#' be very fast.
-#' @examples \dontrun{
-#' pl_cache()
+#' @details On the first query if not run before, the function takes a bit to get the raw data
+#' (if not already gotten), temporarily load the raw csv data, then create a SQLite database,
+#' and create the pointer to it. Subsequent calls should be very fast.
 #'
+#' There is a function \code{\link{pl_cache}}, used to download the raw csv files. That function
+#' is run internally in these functions if you have not run it before, or if only some fo the files
+#' are present.
+#' @examples \dontrun{
+#' pl_search()
 #' pl_search_loc()
 #' pl_search_names()
 #' pl_search_places()
-#' pl_search()
 #'
 #' pl_search_loc("SELECT * FROM locations limit 5")
 #' pl_search_names("SELECT * FROM names limit 5")
@@ -32,6 +34,10 @@
 #' }
 
 pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
+  # get data if it hasn't been downloaded yet
+  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  if(!all(file.exists(pp))) pl_cache()
+
   if(!check_for_sql(path, 'all')){
     loc <- read_csv(path, 'locations')
     nam <- read_csv(path, 'names')
@@ -49,6 +55,10 @@ pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
 #' @export
 #' @rdname pl_search
 pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
+  # get data if it hasn't been downloaded yet
+  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  if(!all(file.exists(pp))) pl_cache()
+
   if(!check_for_sql(path)){
     dat <- read_csv(path, 'locations')
     con <- make_sql_conn(path, 'locations')
@@ -62,6 +72,10 @@ pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
 #' @export
 #' @rdname pl_search
 pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
+  # get data if it hasn't been downloaded yet
+  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  if(!all(file.exists(pp))) pl_cache()
+
   if(!check_for_sql(path, 'names')){
     dat <- read_csv(path, 'names')
     con <- make_sql_conn(path, 'names')
@@ -75,6 +89,10 @@ pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
 #' @export
 #' @rdname pl_search
 pl_search_places <- function(query = NULL, path = "~/.pleiades/", ...){
+  # get data if it hasn't been downloaded yet
+  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  if(!all(file.exists(pp))) pl_cache()
+
   if(!check_for_sql(path, 'places')){
     dat <- read_csv(path, 'places')
     con <- make_sql_conn(path, 'places')
