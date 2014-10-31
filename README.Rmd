@@ -50,13 +50,23 @@ pl_places(place_id=579885)[1:2]
 
 Pleiades nicely provides their bulk data (for locations, names, and places) in various formats, including `.csv`. We've created three functions `pl_search_loc()`, `pl_search_names()`, and `pl_search_places()` to search each of those datasets. As these are relatively large (approx 40K rows by 30 columns), `dplyr` is a nice approach to dealing with big-ish data. At this time `dplyr` is a dependency. 
 
-First, run `pl_cache()` first to get data. 
+You can run `pl_cache()` first to get the raw data files from Pleiades
 
 ```{r eval=FALSE}
 pl_cache()
 ```
 
-Second, search locations, names, or places. You can return the data (that is, a `dplyr` representation of the data) if you don't pass anything to the function call:
+Or, that function is run internally in `pl_search*()` functions for you.
+
+Search across all tables in one database, or separately locations, names, or places. You can return the data (that is, a `dplyr` representation of the data) if you don't pass anything to the function call:
+
+Gives each table in a list
+
+```{r search}
+pl_search()
+```
+
+Locations only
 
 ```{r locations}
 pl_search_loc()
