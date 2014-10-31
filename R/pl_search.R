@@ -1,6 +1,6 @@
 #' Search for a place, name or location.
 #'
-#' This function searches a locally cached file of their data catalog. See examples.
+#' This function searches a locally created SQLite database created from csv files.
 #'
 #' @export
 #' @param query A place ID. If left NULL, returns the table, which is of class \code{tbl},
@@ -16,11 +16,38 @@
 #' pl_search_loc()
 #' pl_search_names()
 #' pl_search_places()
+#' pl_search()
 #'
 #' pl_search_loc("SELECT * FROM locations limit 5")
-#' pl_search_names(query = "SELECT * FROM names limit 5")
+#' pl_search_names("SELECT * FROM names limit 5")
 #' pl_search_places("SELECT * FROM places limit 5")
+#' pl_search("SELECT locations.bbox locations.pid
+#'            FROM locations
+#'            INNER JOIN names
+#'            ON locations.pid=names.pid")
+#'
+#' locs <- pl_search("SELECT * FROM locations limit 1000") %>% select(pid, reprLat, reprLong)
+#' nms <- pl_search("SELECT * FROM names limit 1000") %>% select(pid)
+#' left_join(locs, nms, "pid", copy = TRUE) %>% collect %>% NROW
 #' }
+
+pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
+  if(!check_for_sql(path, 'all')){
+    loc <- read_csv(path, 'locations')
+    nam <- read_csv(path, 'names')
+    pla <- read_csv(path, 'places')
+    con <- make_sql_conn(path, 'all')
+    invisible(write_sql_table(con, 'locations', loc))
+    invisible(write_sql_table(con, 'names', nam))
+    invisible(write_sql_table(con, 'places', pla))
+  } else {
+    con <- make_sql_conn(path, 'all')
+  }
+  if(!is.null(query)) tbl(con, sql(query), ...) else lapply(c('locations','names','places'), function(x) tbl(con, x))
+}
+
+#' @export
+#' @rdname pl_search
 pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
   if(!check_for_sql(path)){
     dat <- read_csv(path, 'locations')
@@ -33,7 +60,7 @@ pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
 }
 
 #' @export
-#' @rdname pl_search_loc
+#' @rdname pl_search
 pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
   if(!check_for_sql(path, 'names')){
     dat <- read_csv(path, 'names')
@@ -46,7 +73,7 @@ pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
 }
 
 #' @export
-#' @rdname pl_search_loc
+#' @rdname pl_search
 pl_search_places <- function(query = NULL, path = "~/.pleiades/", ...){
   if(!check_for_sql(path, 'places')){
     dat <- read_csv(path, 'places')
