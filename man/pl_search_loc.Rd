@@ -12,7 +12,8 @@ pl_search_names(query, path = "~/.pleiades/", ...)
 pl_search_places(query, path = "~/.pleiades/", ...)
 }
 \arguments{
-\item{query}{A place ID}
+\item{query}{A place ID. If left NULL, returns the table, which is of class \code{tbl},
+which can then be passed on to other \code{dplyr} functions.}
 
 \item{path}{(character) Path to cache data in.}
 
@@ -20,6 +21,11 @@ pl_search_places(query, path = "~/.pleiades/", ...)
 }
 \description{
 This function searches a locally cached file of their data catalog. See examples.
+}
+\details{
+On the first query if not run before, the function takes a bit to load the raw csv
+data, then create a SQLite database, and create the pointer to it. Subsequent calls should
+be very fast.
 }
 \examples{
 \dontrun{

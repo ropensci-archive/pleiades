@@ -3,9 +3,13 @@
 #' This function searches a locally cached file of their data catalog. See examples.
 #'
 #' @export
-#' @param query A place ID
+#' @param query A place ID. If left NULL, returns the table, which is of class \code{tbl},
+#' which can then be passed on to other \code{dplyr} functions.
 #' @param path (character) Path to cache data in.
 #' @param ... Further args passed on to \code{\link[dplyr]{tbl}}
+#' @details On the first query if not run before, the function takes a bit to load the raw csv
+#' data, then create a SQLite database, and create the pointer to it. Subsequent calls should
+#' be very fast.
 #' @examples \dontrun{
 #' pl_search_loc("SELECT * FROM locations limit 5")
 #' pl_search_names(query = "SELECT * FROM names limit 5")
