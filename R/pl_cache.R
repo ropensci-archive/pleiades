@@ -1,5 +1,6 @@
 #' Cache data locally for later usage.
 #'
+#' @import dplyr
 #' @export
 #' @param path (character) Path to cache data in.
 #' @param overwrite (logical) Overwrite existing files?
