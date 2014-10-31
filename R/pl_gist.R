@@ -1,7 +1,7 @@
 #' Make an interactive map to view in the browser as a Github gist
 #'
 #' @export
-#' @import gistr
+#' @importFrom gistr gist_create
 #'
 #' @param x Output from \code{\link{pl_places}}
 #' @param file (character) File name (without file extension) for your geojson file. Default is
