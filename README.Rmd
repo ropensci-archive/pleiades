@@ -93,7 +93,7 @@ pl_search_places("SELECT * FROM places limit 5")
 ### Create geojson map on Github Gists
 
 ```{r eval=FALSE}
-res <- pl_place(place_id=579885)
+res <- pl_places(place_id=579885)
 pl_gist(res)
 ```
 
