@@ -1,5 +1,5 @@
 pleiades
-=======
+========
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
@@ -10,18 +10,24 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://api.travis-ci.org/ropensci/pleiades.png)](https://travis-ci.org/ropensci/pleiades)
+[![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
 
-An R client for [Pleiades](http://pleiades.stoa.org/home)
+R client for [Pleiades](https://pleiades.stoa.org/home)
 
 ## Pleiades info
 
-+ [Homepage](http://pleiades.stoa.org/home)
++ [Homepage](https://pleiades.stoa.org/home)
 + [API docs](http://api.pleiades.stoa.org/)
 
-## Quick start
+## Install
 
-### Install
+More stable CRAN version
+
+```{r eval=FALSE}
+install.packages("pleiades")
+```
+
+Dev version
 
 ```{r eval=FALSE}
 install.packages("devtools")
@@ -32,21 +38,21 @@ devtools::install_github("ropensci/pleiades")
 library("pleiades")
 ```
 
-### Status
+## Status
 
 ```{r}
 pl_status()
 ```
 
-### Places
+## Places
 
 `pl_places` uses the Pleiades API. Just a subst of output for brevity
 
 ```{r}
-pl_places(place_id=579885)[1:2]
+pl_places(place_id = 579885)[1:2]
 ```
 
-### Search bulk files locally
+## Search bulk files locally
 
 Pleiades nicely provides their bulk data (for locations, names, and places) in various formats, including `.csv`. We've created three functions `pl_search_loc()`, `pl_search_names()`, and `pl_search_places()` to search each of those datasets. As these are relatively large (approx 40K rows by 30 columns), `dplyr` is a nice approach to dealing with big-ish data. At this time `dplyr` is a dependency. 
 
@@ -90,7 +96,7 @@ Search places
 pl_search_places("SELECT * FROM places limit 5")
 ```
 
-### Create geojson map on Github Gists
+## Create geojson map on Github Gists
 
 ```{r eval=FALSE}
 res <- pl_places(place_id=579885)
@@ -99,12 +105,13 @@ pl_gist(res)
 
 Which opens up the gist in your default browser, as long as `browse=TRUE` (default).
 
-![](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
+![thing](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
 
 ### Meta
 
 * Please report any issues or bugs](https://github.com/ropensci/pleiades/issues).
 * License: MIT
 * Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
