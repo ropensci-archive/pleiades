@@ -2,7 +2,6 @@
 #'
 #' @import dplyr
 #' @export
-#' @param overwrite (logical) Overwrite existing files?
 #' @param force (logical) Force update of the cache. Default: \code{FALSE}
 #' @param ... Curl options, see \code{\link[curl]{curl_options}}
 #' @param which (character) One of locations, names, or places.
@@ -26,8 +25,7 @@ pl_cache <- function(force = FALSE, ...) {
   cc <- if (!force) check_cache(force) else NULL
   if (is.null(cc)) {
     invisible(
-      lapply(toget, fetch, path = pl_cache_path(),
-             overwrite = overwrite, ...)
+      lapply(toget, fetch, path = pl_cache_path(), ...)
     )
   } else {
     cc
@@ -78,16 +76,11 @@ check_cache <- function(force){
   }
 }
 
-fetch <- function(which = 'locations', path, overwrite, ...){
+fetch <- function(which = 'locations', path, ...){
   check_path(path)
   url <- sprintf(ftpbase, which)
   cli <- crul::HttpClient$new(url = url)
   res <- cli$get(disk = file.path(path, basename(url)), ...)
-  # res <- GET(url, write_disk(path = file.path(path, basename(url)),
-  #                            overwrite = overwrite), ...)
-  # stop_for_status(res)
-  # stopifnot(res$response_headers['content-type'] == "application/x-gzip")
-  #res$request$writer[[1]]
   res$content
 }
 

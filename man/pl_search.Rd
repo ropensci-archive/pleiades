@@ -48,10 +48,6 @@ pl_search_places()
 pl_search_loc("SELECT * FROM locations limit 5")
 pl_search_names("SELECT * FROM names limit 5")
 pl_search_places("SELECT * FROM places limit 5")
-pl_search("SELECT locations.bbox locations.pid
-           FROM locations
-           INNER JOIN names
-           ON locations.pid=names.pid")
 
 locs <- pl_search("SELECT * FROM locations limit 1000") \%>\%
   select(pid, reprLat, reprLong)

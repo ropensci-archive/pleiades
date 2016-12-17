@@ -18,8 +18,6 @@ pl_cache_clear(which = NULL, prompt = TRUE)
 
 \item{prompt}{(logical) Prompt before clearing all files in cache?
 No prompt used when DOIs passed in. Default: \code{TRUE}}
-
-\item{overwrite}{(logical) Overwrite existing files?}
 }
 \description{
 Cache data locally for later usage.
