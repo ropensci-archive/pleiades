@@ -1,9 +1,9 @@
 Package: pleiades
-Title: Interface to the Pleiades Archeological Database
+Title: Interface to the 'Pleiades' 'Archeological' Database
 Description: Provides a set of functions for interacting with the
-    Pleiades API, including getting status datat, places data, and
-    creating a GeoJSON based map on GitHub gists.
-Version: 0.0.8.9100
+    'Pleiades' 'API', including getting status datat, places data, and
+    creating a 'GeoJSON' based map on 'GitHub' 'gists'.
+Version: 0.0.9.9100
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
@@ -17,7 +17,7 @@ Imports:
     rappdirs,
     RSQLite
 Suggests:
-    roxygen2,
+    roxygen2 (>= 5.0.1),
     testthat,
     knitr
 VignetteBuilder: knitr

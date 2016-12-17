@@ -1,23 +1,25 @@
-pleiades
-========
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{pleiades introduction}
+%\VignetteEncoding{UTF-8}
+-->
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  warning = FALSE, 
-  message = FALSE
+	comment = "#>",
+	collapse = TRUE,
+	warning = FALSE,
+	message = FALSE
 )
 ```
 
-[![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
+pleiades introduction
+=====================
 
 R client for [Pleiades](https://pleiades.stoa.org/home)
 
-## Pleiades info
-
-+ [Homepage](https://pleiades.stoa.org/home)
-+ [API docs](http://api.pleiades.stoa.org/)
++ Homepage <https://pleiades.stoa.org/home>
++ API docs <http://api.pleiades.stoa.org/>
 
 ## Install
 
@@ -103,15 +105,6 @@ res <- pl_places(place_id = 462471)
 pl_gist(res)
 ```
 
-Which opens up the gist in your default browser, as long as `browse=TRUE` (default).
+Which opens up the gist in your default browser, as long as `browse = TRUE` (default).
 
-![thing](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
-
-### Meta
-
-* Please report any issues or bugs](https://github.com/ropensci/pleiades/issues).
-* License: MIT
-* Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+![thing](img/gist.png)
