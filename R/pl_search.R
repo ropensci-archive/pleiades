@@ -7,7 +7,6 @@
 #' @param query A place ID. If left NULL, returns the table, which is of
 #' class \code{tbl}, which can then be passed on to other
 #' \pkg{dplyr} functions.
-#' @param path (character) Path to cache data in.
 #' @param ... Further args passed on to \code{\link[dplyr]{tbl}}
 #' @details On the first query if not run before, the function takes a bit
 #' to get the raw data (if not already gotten), temporarily load the raw
@@ -33,22 +32,22 @@
 #' left_join(locs, nms, "pid", copy = TRUE) %>% collect %>% NROW
 #' }
 
-pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
+pl_search <- function(query = NULL, ...){
   # get data if it hasn't been downloaded yet
   pp <- vapply(c('locations','names','places'), function(x)
-    getpath(path, x), "")
+    getpath(pl_cache_path(), x), "")
   if (!all(file.exists(pp))) pl_cache()
 
-  if (!check_for_sql(path, 'all')) {
-    loc <- read_csv(path, 'locations')
-    nam <- read_csv(path, 'names')
-    pla <- read_csv(path, 'places')
-    con <- make_sql_conn(path, 'all')
+  if (!check_for_sql(pl_cache_path(), 'all')) {
+    loc <- read_csv(pl_cache_path(), 'locations')
+    nam <- read_csv(pl_cache_path(), 'names')
+    pla <- read_csv(pl_cache_path(), 'places')
+    con <- make_sql_conn(pl_cache_path(), 'all')
     invisible(write_sql_table(con, 'locations', loc))
     invisible(write_sql_table(con, 'names', nam))
     invisible(write_sql_table(con, 'places', pla))
   } else {
-    con <- make_sql_conn(path, 'all')
+    con <- make_sql_conn(pl_cache_path(), 'all')
   }
   if (!is.null(query)) {
     tbl(con, sql(query), ...)
@@ -59,51 +58,54 @@ pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
 
 #' @export
 #' @rdname pl_search
-pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
+pl_search_loc <- function(query = NULL, ...){
   # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  pp <- vapply(c('locations','names','places'), function(x)
+    getpath(pl_cache_path(), x), "")
   if (!all(file.exists(pp))) pl_cache()
 
-  if (!check_for_sql(path)) {
-    dat <- read_csv(path, 'locations')
-    con <- make_sql_conn(path, 'locations')
+  if (!check_for_sql(pl_cache_path())) {
+    dat <- read_csv(pl_cache_path(), 'locations')
+    con <- make_sql_conn(pl_cache_path(), 'locations')
     invisible(write_sql_table(con, 'locations', dat))
   } else {
-    con <- make_sql_conn(path, 'locations')
+    con <- make_sql_conn(pl_cache_path(), 'locations')
   }
   if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "locations")
 }
 
 #' @export
 #' @rdname pl_search
-pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
+pl_search_names <- function(query = NULL, ...){
   # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  pp <- vapply(c('locations','names','places'), function(x)
+    getpath(pl_cache_path(), x), "")
   if (!all(file.exists(pp))) pl_cache()
 
-  if (!check_for_sql(path, 'names')) {
-    dat <- read_csv(path, 'names')
-    con <- make_sql_conn(path, 'names')
+  if (!check_for_sql(pl_cache_path(), 'names')) {
+    dat <- read_csv(pl_cache_path(), 'names')
+    con <- make_sql_conn(pl_cache_path(), 'names')
     invisible(write_sql_table(con, 'names', dat))
   } else {
-    con <- make_sql_conn(path, 'names')
+    con <- make_sql_conn(pl_cache_path(), 'names')
   }
   if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "names")
 }
 
 #' @export
 #' @rdname pl_search
-pl_search_places <- function(query = NULL, path = "~/.pleiades/", ...){
+pl_search_places <- function(query = NULL, ...){
   # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
+  pp <- vapply(c('locations','names','places'), function(x)
+    getpath(pl_cache_path(), x), "")
   if (!all(file.exists(pp))) pl_cache()
 
-  if (!check_for_sql(path, 'places')) {
-    dat <- read_csv(path, 'places')
-    con <- make_sql_conn(path, 'places')
+  if (!check_for_sql(pl_cache_path(), 'places')) {
+    dat <- read_csv(pl_cache_path(), 'places')
+    con <- make_sql_conn(pl_cache_path(), 'places')
     invisible(write_sql_table(con, 'places', dat))
   } else {
-    con <- make_sql_conn(path, 'places')
+    con <- make_sql_conn(pl_cache_path(), 'places')
   }
   if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "places")
 }

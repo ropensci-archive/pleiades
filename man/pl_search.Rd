@@ -7,20 +7,18 @@
 \alias{pl_search_places}
 \title{Search for a place, name or location.}
 \usage{
-pl_search(query = NULL, path = "~/.pleiades/", ...)
+pl_search(query = NULL, ...)
 
-pl_search_loc(query = NULL, path = "~/.pleiades/", ...)
+pl_search_loc(query = NULL, ...)
 
-pl_search_names(query = NULL, path = "~/.pleiades/", ...)
+pl_search_names(query = NULL, ...)
 
-pl_search_places(query = NULL, path = "~/.pleiades/", ...)
+pl_search_places(query = NULL, ...)
 }
 \arguments{
 \item{query}{A place ID. If left NULL, returns the table, which is of
 class \code{tbl}, which can then be passed on to other
 \pkg{dplyr} functions.}
-
-\item{path}{(character) Path to cache data in.}
 
 \item{...}{Further args passed on to \code{\link[dplyr]{tbl}}}
 }
