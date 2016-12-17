@@ -12,9 +12,10 @@ BugReports: https://github.com/ropensci/pleiades/issues
 Depends:
     dplyr
 Imports:
-    crul (>= 0.1.0),
+    crul (>= 0.1.6),
     jsonlite (>= 1.1),
-    gistr (>= 0.3.6)
+    gistr (>= 0.3.6),
+    rappdirs
 Suggests:
     roxygen2,
     testthat,

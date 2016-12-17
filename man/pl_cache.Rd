@@ -5,15 +5,11 @@
 \alias{pl_cache_clear}
 \title{Cache data locally for later usage.}
 \usage{
-pl_cache(path = "~/.pleiades/", overwrite = TRUE, force = FALSE, ...)
+pl_cache(force = FALSE, ...)
 
-pl_cache_clear(path = "~/.pleiades/", which = NULL, prompt = TRUE)
+pl_cache_clear(which = NULL, prompt = TRUE)
 }
 \arguments{
-\item{path}{(character) Path to cache data in.}
-
-\item{overwrite}{(logical) Overwrite existing files?}
-
 \item{force}{(logical) Force update of the cache. Default: \code{FALSE}}
 
 \item{...}{Curl options, see \code{\link[curl]{curl_options}}}
@@ -22,9 +18,14 @@ pl_cache_clear(path = "~/.pleiades/", which = NULL, prompt = TRUE)
 
 \item{prompt}{(logical) Prompt before clearing all files in cache?
 No prompt used when DOIs passed in. Default: \code{TRUE}}
+
+\item{overwrite}{(logical) Overwrite existing files?}
 }
 \description{
 Cache data locally for later usage.
+}
+\details{
+data are cached in \code{rappdirs::user_cache_dir("pleiades")}
 }
 \examples{
 \dontrun{

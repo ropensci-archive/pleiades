@@ -27,6 +27,9 @@ default browser.}
 Creates a gist on your GitHub account
 }
 \description{
+Make an interactive map to view in the browser as a GitHub gist
+}
+\details{
 There are two ways to authorise gistr to work with your GitHub account:
 \itemize{
  \item Generate a personal access token at

@@ -5,3 +5,5 @@ pl_GET <- function(url, ...) {
 }
 
 pl_base <- function() 'https://pleiades.stoa.org/api'
+
+pl_cache_path <- function() rappdirs::user_cache_dir("pleiades")

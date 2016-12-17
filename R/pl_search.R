@@ -66,16 +66,16 @@ pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
 pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
   # get data if it hasn't been downloaded yet
   pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
-  if(!all(file.exists(pp))) pl_cache()
+  if (!all(file.exists(pp))) pl_cache()
 
-  if(!check_for_sql(path)){
+  if (!check_for_sql(path)) {
     dat <- read_csv(path, 'locations')
     con <- make_sql_conn(path, 'locations')
     invisible(write_sql_table(con, 'locations', dat))
   } else {
     con <- make_sql_conn(path, 'locations')
   }
-  if(!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "locations")
+  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "locations")
 }
 
 #' @export
@@ -83,16 +83,16 @@ pl_search_loc <- function(query = NULL, path = "~/.pleiades/", ...){
 pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
   # get data if it hasn't been downloaded yet
   pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
-  if(!all(file.exists(pp))) pl_cache()
+  if (!all(file.exists(pp))) pl_cache()
 
-  if(!check_for_sql(path, 'names')){
+  if (!check_for_sql(path, 'names')) {
     dat <- read_csv(path, 'names')
     con <- make_sql_conn(path, 'names')
     invisible(write_sql_table(con, 'names', dat))
   } else {
     con <- make_sql_conn(path, 'names')
   }
-  if(!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "names")
+  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "names")
 }
 
 #' @export
@@ -100,23 +100,24 @@ pl_search_names <- function(query = NULL, path = "~/.pleiades/", ...){
 pl_search_places <- function(query = NULL, path = "~/.pleiades/", ...){
   # get data if it hasn't been downloaded yet
   pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
-  if(!all(file.exists(pp))) pl_cache()
+  if (!all(file.exists(pp))) pl_cache()
 
-  if(!check_for_sql(path, 'places')){
+  if (!check_for_sql(path, 'places')) {
     dat <- read_csv(path, 'places')
     con <- make_sql_conn(path, 'places')
     invisible(write_sql_table(con, 'places', dat))
   } else {
     con <- make_sql_conn(path, 'places')
   }
-  if(!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "places")
+  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "places")
 }
 
 getpath <- function(path, x){
-  file <- switch(x,
-                 locations="pleiades-locations-latest.csv.gz",
-                 names="pleiades-names-latest.csv.gz",
-                 places="pleiades-places-latest.csv.gz")
+  file <- switch(
+    x,
+    locations = "pleiades-locations-latest.csv.gz",
+    names = "pleiades-names-latest.csv.gz",
+    places = "pleiades-places-latest.csv.gz")
   file.path(path, file)
 }
 

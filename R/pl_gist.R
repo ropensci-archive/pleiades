@@ -10,8 +10,8 @@
 #' @param browse (logical) If TRUE (default) the map opens in your
 #' default browser.
 #' @param ... Curl options, see \code{\link[curl]{curl_options}}
-#' @description
 #'
+#' @details
 #' There are two ways to authorise gistr to work with your GitHub account:
 #' \itemize{
 #'  \item Generate a personal access token at
@@ -21,6 +21,7 @@
 #' }
 #'
 #' Using the GITHUB_PAT option is recommended.
+#'
 #' @return Creates a gist on your GitHub account
 #'
 #' @examples \dontrun{
