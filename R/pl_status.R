@@ -1,16 +1,12 @@
-#' Get Pleiades status data, number of places, number of locations, number of names.
+#' Get Pleiades status data, number of places, number of locations,
+#' number of names
 #'
 #' @export
-#' @import httr jsonlite
-#'
-#' @param ... Curl debugging arguments, see \code{httr::config}
+#' @param ... Curl options, see \code{\link[curl]{curl_options}}
 #' @examples \dontrun{
 #' pl_status()
 #' }
-pl_status <- function(...){
-  url <- 'http://api.pleiades.stoa.org/status'
-  res <- GET(url, ...)
-  if(res$status_code > 202) stop("Error occurred in API call, try again", call. = FALSE)
-  tt <- content(res, as = "text")
+pl_status <- function(...) {
+  tt <- pl_GET(file.path(pl_base(), 'status'))
   jsonlite::fromJSON(tt)
 }

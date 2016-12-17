@@ -14,14 +14,14 @@ pl_cache_clear(path = "~/.pleiades/", which = NULL, prompt = TRUE)
 
 \item{overwrite}{(logical) Overwrite existing files?}
 
-\item{force}{(logical) Force update of the cache. Default: FALSE}
+\item{force}{(logical) Force update of the cache. Default: \code{FALSE}}
 
-\item{...}{Further args passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
 
 \item{which}{(character) One of locations, names, or places.}
 
-\item{prompt}{(logical) Prompt before clearing all files in cache? No prompt used when DOIs
-assed in. Default: TRUE}
+\item{prompt}{(logical) Prompt before clearing all files in cache?
+No prompt used when DOIs passed in. Default: \code{TRUE}}
 }
 \description{
 Cache data locally for later usage.

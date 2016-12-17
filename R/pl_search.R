@@ -1,19 +1,22 @@
 #' Search for a place, name or location.
 #'
-#' This function searches a locally created SQLite database created from csv files.
+#' This function searches a locally created SQLite database created
+#' from csv files.
 #'
 #' @export
-#' @param query A place ID. If left NULL, returns the table, which is of class \code{tbl},
-#' which can then be passed on to other \code{dplyr} functions.
+#' @param query A place ID. If left NULL, returns the table, which is of
+#' class \code{tbl}, which can then be passed on to other
+#' \pkg{dplyr} functions.
 #' @param path (character) Path to cache data in.
 #' @param ... Further args passed on to \code{\link[dplyr]{tbl}}
-#' @details On the first query if not run before, the function takes a bit to get the raw data
-#' (if not already gotten), temporarily load the raw csv data, then create a SQLite database,
-#' and create the pointer to it. Subsequent calls should be very fast.
+#' @details On the first query if not run before, the function takes a bit
+#' to get the raw data (if not already gotten), temporarily load the raw
+#' csv data, then create a SQLite database, and create the pointer to it.
+#' Subsequent calls should be very fast.
 #'
-#' There is a function \code{\link{pl_cache}}, used to download the raw csv files. That function
-#' is run internally in these functions if you have not run it before, or if only some fo the files
-#' are present.
+#' There is a function \code{\link{pl_cache}}, used to download the raw
+#' csv files. That function is run internally in these functions if you have
+#' not run it before, or if only some fo the files are present.
 #' @examples \dontrun{
 #' pl_search()
 #' pl_search_loc()
@@ -28,17 +31,19 @@
 #'            INNER JOIN names
 #'            ON locations.pid=names.pid")
 #'
-#' locs <- pl_search("SELECT * FROM locations limit 1000") %>% select(pid, reprLat, reprLong)
+#' locs <- pl_search("SELECT * FROM locations limit 1000") %>%
+#'   select(pid, reprLat, reprLong)
 #' nms <- pl_search("SELECT * FROM names limit 1000") %>% select(pid)
 #' left_join(locs, nms, "pid", copy = TRUE) %>% collect %>% NROW
 #' }
 
 pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
   # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x) getpath(path, x), "")
-  if(!all(file.exists(pp))) pl_cache()
+  pp <- vapply(c('locations','names','places'), function(x)
+    getpath(path, x), "")
+  if (!all(file.exists(pp))) pl_cache()
 
-  if(!check_for_sql(path, 'all')){
+  if (!check_for_sql(path, 'all')) {
     loc <- read_csv(path, 'locations')
     nam <- read_csv(path, 'names')
     pla <- read_csv(path, 'places')
@@ -49,7 +54,11 @@ pl_search <- function(query = NULL, path = "~/.pleiades/", ...){
   } else {
     con <- make_sql_conn(path, 'all')
   }
-  if(!is.null(query)) tbl(con, sql(query), ...) else lapply(c('locations','names','places'), function(x) tbl(con, x))
+  if (!is.null(query)) {
+    tbl(con, sql(query), ...)
+  } else {
+    lapply(c('locations','names','places'), function(x) tbl(con, x))
+  }
 }
 
 #' @export

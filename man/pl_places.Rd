@@ -9,14 +9,14 @@ pl_places(place_id, ...)
 \arguments{
 \item{place_id}{(integer/numeric) A place ID}
 
-\item{...}{Curl debugging arguments passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
 }
 \description{
 Get data for a place given a place ID
 }
 \examples{
 \dontrun{
-pl_places(place_id=579885)
+pl_places(place_id = 462471)
 }
 }
 

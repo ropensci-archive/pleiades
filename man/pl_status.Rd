@@ -2,15 +2,17 @@
 % Please edit documentation in R/pl_status.R
 \name{pl_status}
 \alias{pl_status}
-\title{Get Pleiades status data, number of places, number of locations, number of names.}
+\title{Get Pleiades status data, number of places, number of locations,
+number of names}
 \usage{
 pl_status(...)
 }
 \arguments{
-\item{...}{Curl debugging arguments, see \code{httr::config}}
+\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
 }
 \description{
-Get Pleiades status data, number of places, number of locations, number of names.
+Get Pleiades status data, number of places, number of locations,
+number of names
 }
 \examples{
 \dontrun{

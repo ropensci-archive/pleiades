@@ -16,24 +16,27 @@ pl_search_names(query = NULL, path = "~/.pleiades/", ...)
 pl_search_places(query = NULL, path = "~/.pleiades/", ...)
 }
 \arguments{
-\item{query}{A place ID. If left NULL, returns the table, which is of class \code{tbl},
-which can then be passed on to other \code{dplyr} functions.}
+\item{query}{A place ID. If left NULL, returns the table, which is of
+class \code{tbl}, which can then be passed on to other
+\pkg{dplyr} functions.}
 
 \item{path}{(character) Path to cache data in.}
 
 \item{...}{Further args passed on to \code{\link[dplyr]{tbl}}}
 }
 \description{
-This function searches a locally created SQLite database created from csv files.
+This function searches a locally created SQLite database created
+from csv files.
 }
 \details{
-On the first query if not run before, the function takes a bit to get the raw data
-(if not already gotten), temporarily load the raw csv data, then create a SQLite database,
-and create the pointer to it. Subsequent calls should be very fast.
+On the first query if not run before, the function takes a bit
+to get the raw data (if not already gotten), temporarily load the raw
+csv data, then create a SQLite database, and create the pointer to it.
+Subsequent calls should be very fast.
 
-There is a function \code{\link{pl_cache}}, used to download the raw csv files. That function
-is run internally in these functions if you have not run it before, or if only some fo the files
-are present.
+There is a function \code{\link{pl_cache}}, used to download the raw
+csv files. That function is run internally in these functions if you have
+not run it before, or if only some fo the files are present.
 }
 \examples{
 \dontrun{
@@ -50,7 +53,8 @@ pl_search("SELECT locations.bbox locations.pid
            INNER JOIN names
            ON locations.pid=names.pid")
 
-locs <- pl_search("SELECT * FROM locations limit 1000") \%>\% select(pid, reprLat, reprLong)
+locs <- pl_search("SELECT * FROM locations limit 1000") \%>\%
+  select(pid, reprLat, reprLong)
 nms <- pl_search("SELECT * FROM names limit 1000") \%>\% select(pid)
 left_join(locs, nms, "pid", copy = TRUE) \%>\% collect \%>\% NROW
 }

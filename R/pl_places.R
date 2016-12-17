@@ -2,16 +2,12 @@
 #'
 #' @export
 #' @param place_id (integer/numeric) A place ID
-#' @param ... Curl debugging arguments passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options, see \code{\link[curl]{curl_options}}
 #' @examples \dontrun{
-#' pl_places(place_id=579885)
+#' pl_places(place_id = 462471)
 #' }
-pl_places <- function(place_id, ...){
-  url <- sprintf('http://pleiades.stoa.org/places/%s/json', place_id)
-  res <- GET(url, ...)
-  if(res$status_code > 202) stop("Error occurred in API call, try again", call. = FALSE)
-  tt <- content(res, as = "text")
-  ll <- jsonlite::fromJSON(tt, FALSE)
-  class(ll) <- "pleiades"
-  ll
+pl_places <- function(place_id, ...) {
+  url <- sprintf('%s/places/%s/json', pl_base(), place_id)
+  tt <- pl_GET(url, ...)
+  structure(jsonlite::fromJSON(tt, FALSE), class = "pleiades")
 }

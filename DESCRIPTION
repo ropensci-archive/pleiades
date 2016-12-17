@@ -12,12 +12,12 @@ BugReports: https://github.com/ropensci/pleiades/issues
 Depends:
     dplyr
 Imports:
-    httr,
-    jsonlite,
-    gistr
+    crul (>= 0.1.0),
+    jsonlite (>= 1.1),
+    gistr (>= 0.3.6)
 Suggests:
-    testthat,
     roxygen2,
+    testthat,
     knitr
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1

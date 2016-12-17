@@ -2,7 +2,7 @@
 % Please edit documentation in R/pl_gist.R
 \name{pl_gist}
 \alias{pl_gist}
-\title{Make an interactive map to view in the browser as a Github gist}
+\title{Make an interactive map to view in the browser as a GitHub gist}
 \usage{
 pl_gist(x, file = NULL, description = "", public = TRUE, browse = TRUE,
   ...)
@@ -10,35 +10,36 @@ pl_gist(x, file = NULL, description = "", public = TRUE, browse = TRUE,
 \arguments{
 \item{x}{Output from \code{\link{pl_places}}}
 
-\item{file}{(character) File name (without file extension) for your geojson file. Default is
-'gistmap'.}
+\item{file}{(character) File name (without file extension) for your geojson
+file. Default is 'gistmap'.}
 
-\item{description}{(character) Description for the Github gist, or leave to default
-(=no description)}
+\item{description}{(character) Description for the Github gist, or leave
+to default (=no description)}
 
 \item{public}{(logical) Whether gist is public (default: TRUE)}
 
-\item{browse}{(logical) If TRUE (default) the map opens in your default browser.}
+\item{browse}{(logical) If TRUE (default) the map opens in your
+default browser.}
 
-\item{...}{Further args passed on to \code{\link[httr]{POST}}}
+\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
 }
 \value{
-Creates a gist on your Github account
+Creates a gist on your GitHub account
 }
 \description{
 There are two ways to authorise gistr to work with your GitHub account:
 \itemize{
  \item Generate a personal access token at
- https://help.github.com/articles/creating-an-access-token-for-command-line-use and record in
- the GITHUB_PAT envar.
- \item Interactively login into your GitHub account and authorise with OAuth.
+https://help.github.com/articles/creating-an-access-token-for-command-line-use
+and record in the GITHUB_PAT envar.
+ \item Interactively login into your GitHub account and authorise with OAuth
 }
 
 Using the GITHUB_PAT option is recommended.
 }
 \examples{
 \dontrun{
-x <- pl_places(place_id=579885)
+x <- pl_places(place_id = 462471)
 pl_gist(x)
 }
 }
