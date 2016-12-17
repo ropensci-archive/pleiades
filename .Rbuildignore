@@ -8,3 +8,4 @@ Makefile
 ^\.Rproj\.user$
 README.Rmd
 ^CONDUCT\.md$
+cran-comments.md
