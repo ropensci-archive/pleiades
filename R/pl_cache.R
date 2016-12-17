@@ -1,6 +1,5 @@
 #' Cache data locally for later usage.
 #'
-#' @import dplyr
 #' @export
 #' @param force (logical) Force update of the cache. Default: \code{FALSE}
 #' @param ... Curl options, see \code{\link[curl]{curl_options}}

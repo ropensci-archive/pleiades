@@ -26,17 +26,15 @@
 #' pl_search_names("SELECT * FROM names limit 5")
 #' pl_search_places("SELECT * FROM places limit 5")
 #'
+#' library(dplyr)
 #' locs <- pl_search("SELECT * FROM locations limit 1000") %>%
 #'   select(pid, reprLat, reprLong)
 #' nms <- pl_search("SELECT * FROM names limit 1000") %>% select(pid)
 #' left_join(locs, nms, "pid", copy = TRUE) %>% collect %>% NROW
 #' }
 
-pl_search <- function(query = NULL, ...){
-  # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x)
-    getpath(pl_cache_path(), x), "")
-  if (!all(file.exists(pp))) pl_cache()
+pl_search <- function(query = NULL, ...) {
+  pl_cache()
 
   if (!check_for_sql(pl_cache_path(), 'all')) {
     loc <- read_csv(pl_cache_path(), 'locations')
@@ -50,67 +48,52 @@ pl_search <- function(query = NULL, ...){
     con <- make_sql_conn(pl_cache_path(), 'all')
   }
   if (!is.null(query)) {
-    tbl(con, sql(query), ...)
+    dplyr::tbl(con, dplyr::sql(query), ...)
   } else {
-    lapply(c('locations','names','places'), function(x) tbl(con, x))
+    lapply(c('locations','names','places'), function(x) dplyr::tbl(con, x))
   }
 }
 
 #' @export
 #' @rdname pl_search
 pl_search_loc <- function(query = NULL, ...){
-  # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x)
-    getpath(pl_cache_path(), x), "")
-  if (!all(file.exists(pp))) pl_cache()
-
-  if (!check_for_sql(pl_cache_path())) {
-    dat <- read_csv(pl_cache_path(), 'locations')
-    con <- make_sql_conn(pl_cache_path(), 'locations')
-    invisible(write_sql_table(con, 'locations', dat))
-  } else {
-    con <- make_sql_conn(pl_cache_path(), 'locations')
-  }
-  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "locations")
+  pl_cache()
+  do_pl_search('locations', query, ...)
 }
 
 #' @export
 #' @rdname pl_search
 pl_search_names <- function(query = NULL, ...){
-  # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x)
-    getpath(pl_cache_path(), x), "")
-  if (!all(file.exists(pp))) pl_cache()
-
-  if (!check_for_sql(pl_cache_path(), 'names')) {
-    dat <- read_csv(pl_cache_path(), 'names')
-    con <- make_sql_conn(pl_cache_path(), 'names')
-    invisible(write_sql_table(con, 'names', dat))
-  } else {
-    con <- make_sql_conn(pl_cache_path(), 'names')
-  }
-  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "names")
+  pl_cache()
+  do_pl_search('names', query, ...)
 }
 
 #' @export
 #' @rdname pl_search
 pl_search_places <- function(query = NULL, ...){
-  # get data if it hasn't been downloaded yet
-  pp <- vapply(c('locations','names','places'), function(x)
-    getpath(pl_cache_path(), x), "")
-  if (!all(file.exists(pp))) pl_cache()
-
-  if (!check_for_sql(pl_cache_path(), 'places')) {
-    dat <- read_csv(pl_cache_path(), 'places')
-    con <- make_sql_conn(pl_cache_path(), 'places')
-    invisible(write_sql_table(con, 'places', dat))
-  } else {
-    con <- make_sql_conn(pl_cache_path(), 'places')
-  }
-  if (!is.null(query)) tbl(con, sql(query), ...) else tbl(con, "places")
+  pl_cache()
+  do_pl_search('places', query, ...)
 }
 
-getpath <- function(path, x){
+
+# helpers --------------------
+do_pl_search <- function(x, query, ...) {
+  if (!check_for_sql(pl_cache_path(), x)) {
+    dat <- read_csv(pl_cache_path(), x)
+    con <- make_sql_conn(pl_cache_path(), x)
+    invisible(write_sql_table(con, x, dat))
+  } else {
+    con <- make_sql_conn(pl_cache_path(), x)
+  }
+
+  if (!is.null(query)) {
+    dplyr::tbl(con, dplyr::sql(query), ...)
+  } else {
+    dplyr::tbl(con, x)
+  }
+}
+
+getpath <- function(path, x) {
   file <- switch(
     x,
     locations = "pleiades-locations-latest.csv.gz",
@@ -131,11 +114,11 @@ check_for_sql <- function(path, which="locations"){
 
 make_sql_conn <- function(path, which="locations"){
   sqldb <- file.path(path, sprintf("pleiades_%s.sqlite3", which))
-  src_sqlite(path = sqldb, create = TRUE)
+  dplyr::src_sqlite(path = sqldb, create = TRUE)
 }
 
 write_sql_table <- function(con, name, table){
-  copy_to(con, table, name, temporary = FALSE, indexes = list("created"))
+  dplyr::copy_to(con, table, name, temporary = FALSE, indexes = list("created"))
 }
 
 # dbWriteTable(con, "locations", dat, row.names = FALSE)

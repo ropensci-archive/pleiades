@@ -9,13 +9,13 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/pleiades
 BugReports: https://github.com/ropensci/pleiades/issues
-Depends:
-    dplyr
 Imports:
+    dplyr (>= 0.5.0),
     crul (>= 0.1.6),
     jsonlite (>= 1.1),
     gistr (>= 0.3.6),
-    rappdirs
+    rappdirs,
+    RSQLite
 Suggests:
     roxygen2,
     testthat,

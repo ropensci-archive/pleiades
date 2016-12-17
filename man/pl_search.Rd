@@ -47,6 +47,7 @@ pl_search_loc("SELECT * FROM locations limit 5")
 pl_search_names("SELECT * FROM names limit 5")
 pl_search_places("SELECT * FROM places limit 5")
 
+library(dplyr)
 locs <- pl_search("SELECT * FROM locations limit 1000") \%>\%
   select(pid, reprLat, reprLong)
 nms <- pl_search("SELECT * FROM names limit 1000") \%>\% select(pid)
