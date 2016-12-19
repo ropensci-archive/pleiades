@@ -2,7 +2,6 @@ man-roxygen/
 .DS_Store
 .travis.yml
 travis-tool.sh
-vignettes/margins.sty
 Makefile
 ^.*\.Rproj$
 ^\.Rproj\.user$
