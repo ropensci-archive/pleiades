@@ -109,7 +109,7 @@ Which opens up the gist in your default browser, as long as `browse=TRUE` (defau
 
 ### Meta
 
-* Please report any issues or bugs](https://github.com/ropensci/pleiades/issues).
+* Please report any [issues or bugs](https://github.com/ropensci/pleiades/issues).
 * License: MIT
 * Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

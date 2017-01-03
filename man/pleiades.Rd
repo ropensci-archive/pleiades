@@ -2,7 +2,6 @@
 % Please edit documentation in R/pleiades-package.r
 \docType{package}
 \name{pleiades}
-\alias{crul}
 \alias{pleiades}
 \alias{pleiades-package}
 \title{\strong{pleiades}}

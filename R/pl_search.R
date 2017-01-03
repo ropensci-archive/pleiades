@@ -16,6 +16,7 @@
 #' There is a function \code{\link{pl_cache}}, used to download the raw
 #' csv files. That function is run internally in these functions if you have
 #' not run it before, or if only some fo the files are present.
+#' @note Requires \code{RSQLite} package
 #' @examples \dontrun{
 #' pl_search()
 #' pl_search_loc()
@@ -34,6 +35,7 @@
 #' }
 
 pl_search <- function(query = NULL, ...) {
+  check4sqlite()
   pl_cache()
 
   if (!check_for_sql(pl_cache_path(), 'all')) {
