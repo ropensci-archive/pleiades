@@ -1,7 +1,8 @@
 pl_GET <- function(url, ...) {
   cli <- crul::HttpClient$new(url = url)
   res <- cli$get(...)
-  res$parse()
+  res$raise_for_status()
+  res$parse("UTF-8")
 }
 
 pl_base <- function() 'https://pleiades.stoa.org/api'
