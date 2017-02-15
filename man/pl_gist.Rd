@@ -46,4 +46,3 @@ x <- pl_places(place_id = 462471)
 pl_gist(x)
 }
 }
-

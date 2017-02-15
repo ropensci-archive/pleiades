@@ -57,4 +57,3 @@ nms <- pl_search("SELECT * FROM names limit 1000") \%>\% select(pid)
 left_join(locs, nms, "pid", copy = TRUE) \%>\% collect \%>\% NROW
 }
 }
-

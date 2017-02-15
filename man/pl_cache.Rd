@@ -39,4 +39,3 @@ pl_cache_clear(which = "places")
 pl_cache_clear(which = "names")
 }
 }
-

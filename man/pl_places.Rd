@@ -19,4 +19,3 @@ Get data for a place given a place ID
 pl_places(place_id = 462471)
 }
 }
-
