@@ -38,7 +38,10 @@ pl_search <- function(query = NULL, ...) {
   check4sqlite()
   pl_cache()
 
-  if (!check_for_sql(pl_cache_path(), 'all')) {
+  if (
+    !check_for_sql(pl_cache_path(), 'all') ||
+    file_is_empty(pl_cache_path(), 'all')
+  ) {
     loc <- read_csv(pl_cache_path(), 'locations')
     nam <- read_csv(pl_cache_path(), 'names')
     pla <- read_csv(pl_cache_path(), 'places')
@@ -112,6 +115,11 @@ read_csv <- function(path, x){
 
 check_for_sql <- function(path, which="locations"){
   file.exists(file.path(path, sprintf("pleiades_%s.sqlite3", which)))
+}
+
+file_is_empty <- function(path, which="locations") {
+  ff <- file.info(file.path(path, sprintf("pleiades_%s.sqlite3", which)))
+  !ff$size > 0
 }
 
 make_sql_conn <- function(path, which="locations"){
