@@ -19,6 +19,7 @@ Suggests:
     roxygen2 (>= 5.0.1),
     testthat,
     knitr,
-    RSQLite
+    RSQLite,
+    covr
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
