@@ -4,6 +4,7 @@ pleiades
 
 
 [![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
+[![codecov.io](https://codecov.io/github/ropensci/pleiades/coverage.svg?branch=master)](https://codecov.io/github/ropensci/pleiades?branch=master)
 
 R client for [Pleiades](https://pleiades.stoa.org/home)
 
