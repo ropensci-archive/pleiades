@@ -1,8 +1,9 @@
 Package: pleiades
 Title: Interface to the 'Pleiades' 'Archeological' Database
 Description: Provides a set of functions for interacting with the
-    'Pleiades' 'API', including getting status data, places data, and
-    creating a 'GeoJSON' based map on 'GitHub' 'gists'.
+    'Pleiades' (<https://pleiades.stoa.org/>) 'API', including 
+    getting status data, places data, and creating a 'GeoJSON' 
+    based map on 'GitHub' 'gists'.
 Version: 0.1.2.9100
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")

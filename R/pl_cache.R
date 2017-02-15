@@ -9,15 +9,15 @@
 #' @details data are cached in \code{rappdirs::user_cache_dir("pleiades")}
 #' @examples \dontrun{
 #' pl_cache()
-#' pl_cache(force = TRUE)
+#' # pl_cache(force = TRUE)
 #'
 #' # clear all files
-#' pl_cache_clear()
+#' # pl_cache_clear()
 #'
 #' # clear a single file
-#' pl_cache_clear(which = "locations")
-#' pl_cache_clear(which = "places")
-#' pl_cache_clear(which = "names")
+#' # pl_cache_clear(which = "locations")
+#' # pl_cache_clear(which = "places")
+#' # pl_cache_clear(which = "names")
 #' }
 pl_cache <- function(force = FALSE, ...) {
   toget <- c('locations','names','places')

@@ -30,7 +30,6 @@ install.packages("pleiades")
 Dev version
 
 ```{r eval=FALSE}
-install.packages("devtools")
 devtools::install_github("ropensci/pleiades")
 ```
 
