@@ -1,0 +1,10 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+.github
+^Makefile$
+.travis.yml
+man-roxygen
+cran-comments.md
+^appveyor\.yml$
+README.Rmd
+^CONDUCT\.md$
