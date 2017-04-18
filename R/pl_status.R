@@ -7,6 +7,6 @@
 #' pl_status()
 #' }
 pl_status <- function(...) {
-  tt <- pl_GET(file.path(pl_base(), 'status'))
+  tt <- pl_GET(file.path(pl_base(), 'status'), ...)
   jsonlite::fromJSON(tt)
 }
