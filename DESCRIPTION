@@ -14,13 +14,12 @@ Imports:
     dplyr (>= 0.5.0),
     crul (>= 0.2.0),
     jsonlite (>= 1.1),
-    gistr (>= 0.3.6),
+    gistr (>= 0.3.7.9100),
     rappdirs
 Suggests:
-    roxygen2 (>= 5.0.1),
+    roxygen2 (>= 6.0.1),
     testthat,
     knitr,
-    RSQLite,
-    covr
+    RSQLite
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
