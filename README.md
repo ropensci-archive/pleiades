@@ -42,13 +42,13 @@ library("pleiades")
 ```r
 pl_status()
 #> $num_places
-#> [1] 35250
+#> [1] 35297
 #> 
 #> $num_locations
-#> [1] 39385
+#> [1] 39376
 #> 
 #> $num_names
-#> [1] 31125
+#> [1] 31201
 ```
 
 ## Places
