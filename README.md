@@ -5,6 +5,8 @@ pleiades
 
 [![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
 [![codecov.io](https://codecov.io/github/ropensci/pleiades/coverage.svg?branch=master)](https://codecov.io/github/ropensci/pleiades?branch=master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/pleiades)](https://github.com/metacran/cranlogs.app)
+[![cran version](http://www.r-pkg.org/badges/version/pleiades)](https://cran.r-project.org/package=pleiades)
 
 R client for [Pleiades](https://pleiades.stoa.org/home)
 
