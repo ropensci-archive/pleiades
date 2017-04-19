@@ -12,6 +12,8 @@ R client for [Pleiades](https://pleiades.stoa.org/home)
 
 ## Pleiades info
 
+Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create, and share historical geographic information about the ancient world in digital form. At present, Pleiades has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, Byzantine, Celtic, and Early Medieval geography.
+
 + [Homepage](https://pleiades.stoa.org/home)
 + [API docs](http://api.pleiades.stoa.org/)
 
@@ -45,7 +47,7 @@ pl_status()
 #> [1] 35297
 #> 
 #> $num_locations
-#> [1] 39376
+#> [1] 39373
 #> 
 #> $num_names
 #> [1] 31201
