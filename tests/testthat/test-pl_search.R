@@ -9,12 +9,12 @@ test_that("pl_search works", {
   dd <- pl_search_places()
 
   expect_is(aa, 'list')
-  expect_is(aa[[1]], 'tbl_sqlite')
+  expect_is(aa[[1]], 'tbl')
   expect_equal(length(aa), 3)
 
-  expect_is(bb, 'tbl_sqlite')
-  expect_is(cc, 'tbl_sqlite')
-  expect_is(dd, 'tbl_sqlite')
+  expect_is(bb, 'tbl')
+  expect_is(cc, 'tbl')
+  expect_is(dd, 'tbl')
 })
 
 
