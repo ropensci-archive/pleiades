@@ -124,7 +124,9 @@ file_is_empty <- function(path, which="locations") {
 
 make_sql_conn <- function(path, which="locations"){
   sqldb <- file.path(path, sprintf("pleiades_%s.sqlite3", which))
-  dplyr::src_sqlite(path = sqldb, create = TRUE)
+  con <- DBI::dbConnect(RSQLite::SQLite(), dbname = sqldb)
+  dbplyr::src_dbi(con)
+  #dplyr::src_sqlite(path = sqldb, create = TRUE)
 }
 
 write_sql_table <- function(con, name, table){
