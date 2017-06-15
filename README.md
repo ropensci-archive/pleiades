@@ -44,13 +44,13 @@ library("pleiades")
 ```r
 pl_status()
 #> $num_places
-#> [1] 35297
+#> [1] 35338
 #> 
 #> $num_locations
-#> [1] 39373
+#> [1] 39348
 #> 
 #> $num_names
-#> [1] 31201
+#> [1] 31282
 ```
 
 ## Places
@@ -265,20 +265,20 @@ Gives each table in a list
 ```r
 pl_search()
 #> [[1]]
-#> Source:   query [?? x 25]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
-#> 
+#> # Source:   table<locations> [?? x 25]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
 #>                                                     authors
 #>                                                       <chr>
-#> 1                                                Becker, J.
-#> 2                                                Becker, J.
-#> 3          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 4  Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 5          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 6          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 7          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 8          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 9  Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  1                                               Becker, J.
+#>  2                                               Becker, J.
+#>  3         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  4 Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  5         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  6         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  7         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  8         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  9                                   Becker, J., T. Elliott
 #> 10         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
 #> # ... with more rows, and 24 more variables: bbox <chr>, created <chr>,
 #> #   creators <chr>, currentVersion <int>, description <chr>,
@@ -289,20 +289,20 @@ pl_search()
 #> #   timePeriodsRange <chr>, title <chr>, uid <chr>
 #> 
 #> [[2]]
-#> Source:   query [?? x 26]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
-#> 
+#> # Source:   table<names> [?? x 26]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
 #>                                                                authors
 #>                                                                  <chr>
-#> 1             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 2             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 3             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 4                                                           Becker, J.
-#> 5  Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
-#> 6             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 7             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 8             Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 9                                                           Becker, J.
+#>  1            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  2            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  3            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  4                                                          Becker, J.
+#>  5 Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
+#>  6            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  7            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  8            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  9                                                          Becker, J.
 #> 10            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
 #> # ... with more rows, and 25 more variables: bbox <chr>, created <chr>,
 #> #   creators <chr>, currentVersion <int>, description <chr>, extent <chr>,
@@ -313,20 +313,20 @@ pl_search()
 #> #   timePeriodsKeys <chr>, timePeriodsRange <chr>, title <chr>, uid <chr>
 #> 
 #> [[3]]
-#> Source:   query [?? x 26]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
-#> 
+#> # Source:   table<places> [?? x 26]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_all.sqlite3]
 #>                                                                       authors
 #>                                                                         <chr>
-#> 1                                                      Becker, J., T. Elliott
-#> 2                                                      Becker, J., T. Elliott
-#> 3  Spann, P., DARMC, R. Talbert, S. Gillies, R. Warner, J. Becker, T. Elliott
-#> 4         Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
-#> 5                    Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 6  Spann, P., DARMC, R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
-#> 7                    Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 8  Spann, P., DARMC, R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
-#> 9         Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
+#>  1                                                     Becker, J., T. Elliott
+#>  2                                                     Becker, J., T. Elliott
+#>  3 Spann, P., DARMC, R. Talbert, S. Gillies, R. Warner, J. Becker, T. Elliott
+#>  4        Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
+#>  5                   Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  6 Spann, P., DARMC, R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
+#>  7                   Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  8 Spann, P., DARMC, R. Talbert, R. Warner, J. Becker, S. Gillies, T. Elliott
+#>  9        Spann, P., R. Warner, R. Talbert, S. Gillies, T. Elliott, J. Becker
 #> 10 Spann, P., DARMC, R. Talbert, J. Becker, R. Warner, S. Gillies, T. Elliott
 #> # ... with more rows, and 25 more variables: bbox <chr>,
 #> #   connectsWith <chr>, created <chr>, creators <chr>,
@@ -343,20 +343,20 @@ Locations only
 
 ```r
 pl_search_loc()
-#> Source:   query [?? x 25]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_locations.sqlite3]
-#> 
+#> # Source:   table<locations> [?? x 25]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_locations.sqlite3]
 #>                                                     authors
 #>                                                       <chr>
-#> 1                                                Becker, J.
-#> 2                                                Becker, J.
-#> 3          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 4  Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
-#> 5          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 6          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 7          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 8          Spann, P., D. R. Talbert, T. Elliott, S. Gillies
-#> 9  Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  1                                               Becker, J.
+#>  2                                               Becker, J.
+#>  3         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  4 Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
+#>  5         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  6         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  7         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  8         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
+#>  9                                   Becker, J., T. Elliott
 #> 10         Spann, P., D. R. Talbert, T. Elliott, S. Gillies
 #> # ... with more rows, and 24 more variables: bbox <chr>, created <chr>,
 #> #   creators <chr>, currentVersion <int>, description <chr>,
@@ -372,9 +372,9 @@ Or you can submit a query:
 
 ```r
 pl_search_loc("SELECT * FROM locations limit 5")
-#> Source:   query [?? x 25]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_locations.sqlite3]
-#> 
+#> # Source:   SQL [?? x 25]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_locations.sqlite3]
 #>                                                    authors
 #>                                                      <chr>
 #> 1                                               Becker, J.
@@ -396,9 +396,9 @@ Search names
 
 ```r
 pl_search_names("SELECT * FROM names limit 5")
-#> Source:   query [?? x 26]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_names.sqlite3]
-#> 
+#> # Source:   SQL [?? x 26]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_names.sqlite3]
 #>                                                               authors
 #>                                                                 <chr>
 #> 1            Spann, P., R. Warner, R. Talbert, T. Elliott, S. Gillies
@@ -420,9 +420,9 @@ Search places
 
 ```r
 pl_search_places("SELECT * FROM places limit 5")
-#> Source:   query [?? x 26]
-#> Database: sqlite 3.11.1 [/Users/sacmac/Library/Caches/pleiades/pleiades_places.sqlite3]
-#> 
+#> # Source:   SQL [?? x 26]
+#> # Database: sqlite 3.11.1
+#> #   [/Users/sacmac/Library/Caches/pleiades/pleiades_places.sqlite3]
 #>                                                                      authors
 #>                                                                        <chr>
 #> 1                                                     Becker, J., T. Elliott
@@ -458,5 +458,3 @@ Which opens up the gist in your default browser, as long as `browse=TRUE` (defau
 * License: MIT
 * Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
