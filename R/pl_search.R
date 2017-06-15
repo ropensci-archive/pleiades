@@ -126,18 +126,8 @@ make_sql_conn <- function(path, which="locations"){
   sqldb <- file.path(path, sprintf("pleiades_%s.sqlite3", which))
   con <- DBI::dbConnect(RSQLite::SQLite(), dbname = sqldb)
   dbplyr::src_dbi(con)
-  #dplyr::src_sqlite(path = sqldb, create = TRUE)
 }
 
 write_sql_table <- function(con, name, table){
   dplyr::copy_to(con, table, name, temporary = FALSE, indexes = list("created"))
 }
-
-# dbWriteTable(con, "locations", dat, row.names = FALSE)
-# dbListTables(con)
-# dbListFields(con, "locations")
-#
-# my_db <- src_sqlite(path = sqldb, create = TRUE)
-# locations <- copy_to(my_db, dat, which, temporary = FALSE, indexes = list("created"))
-# locdf <- tbl(my_db, "locations")
-# tbl(my_db, sql("SELECT * FROM locations limit 5"))
