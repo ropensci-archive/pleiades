@@ -23,5 +23,9 @@ There are no reverse dependencies.
 This version updates dependencies and changes internals accordingly
 for those new deps, due to changes in dplyr.
 
+I noticed that on winbuilder R-devel there is an odd error about EOF, 
+but it builds fine without problems on winbuilder R-release, so I 
+assume it’s okay.
+
 Thanks!
 Scott Chamberlain
