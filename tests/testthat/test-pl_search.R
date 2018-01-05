@@ -21,9 +21,9 @@ test_that("pl_search works", {
 test_that("pl_search fails well", {
   skip_on_cran()
 
-  expect_error(pl_search(5), "is.character\\(x\\) is not TRUE")
-  expect_error(pl_search(mtcars), "is.character\\(x\\) is not TRUE")
-  expect_error(pl_search_loc(5), "is.character\\(x\\) is not TRUE")
-  expect_error(pl_search_names(5), "is.character\\(x\\) is not TRUE")
-  expect_error(pl_search_places(5), "is.character\\(x\\) is not TRUE")
+  expect_error(pl_search(5), "Character input expected")
+  expect_error(pl_search(mtcars), "Character input expected")
+  expect_error(pl_search_loc(5), "Character input expected")
+  expect_error(pl_search_names(5), "Character input expected")
+  expect_error(pl_search_places(5), "Character input expected")
 })
