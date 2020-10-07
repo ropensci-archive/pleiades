@@ -5,18 +5,18 @@
 #'
 #' @export
 #' @param query A place ID. If left NULL, returns the table, which is of
-#' class \code{tbl}, which can then be passed on to other
+#' class `tbl`, which can then be passed on to other
 #' \pkg{dplyr} functions.
-#' @param ... Further args passed on to \code{\link[dplyr]{tbl}}
+#' @param ... Further args passed on to [dplyr::tbl()]
 #' @details On the first query if not run before, the function takes a bit
 #' to get the raw data (if not already gotten), temporarily load the raw
 #' csv data, then create a SQLite database, and create the pointer to it.
 #' Subsequent calls should be very fast.
 #'
-#' There is a function \code{\link{pl_cache}}, used to download the raw
+#' There is a function [pl_cache], used to download the raw
 #' csv files. That function is run internally in these functions if you have
 #' not run it before, or if only some fo the files are present.
-#' @note Requires \code{RSQLite} package
+#' @note Requires `RSQLite` package
 #' @examples \dontrun{
 #' pl_search()
 #' pl_search_loc()

@@ -1,12 +1,12 @@
 #' Cache data locally for later usage.
 #'
 #' @export
-#' @param force (logical) Force update of the cache. Default: \code{FALSE}
+#' @param force (logical) Force update of the cache. Default: `FALSE`
 #' @param ... Curl options, see `curl::curl_options()`
 #' @param which (character) One of locations, names, or places.
 #' @param prompt (logical) Prompt before clearing all files in cache?
-#' No prompt used when DOIs passed in. Default: \code{TRUE}
-#' @details data are cached in \code{rappdirs::user_cache_dir("pleiades")}
+#' No prompt used when DOIs passed in. Default: `TRUE`
+#' @details data are cached in `rappdirs::user_cache_dir("pleiades")`
 #' @examples \dontrun{
 #' pl_cache()
 #' # pl_cache(force = TRUE)

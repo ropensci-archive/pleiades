@@ -20,7 +20,7 @@ pl_search_places(query = NULL, ...)
 class \code{tbl}, which can then be passed on to other
 \pkg{dplyr} functions.}
 
-\item{...}{Further args passed on to \code{\link[dplyr]{tbl}}}
+\item{...}{Further args passed on to \code{\link[dplyr:tbl]{dplyr::tbl()}}}
 }
 \description{
 This function searches a locally created SQLite database created
@@ -32,7 +32,7 @@ to get the raw data (if not already gotten), temporarily load the raw
 csv data, then create a SQLite database, and create the pointer to it.
 Subsequent calls should be very fast.
 
-There is a function \code{\link{pl_cache}}, used to download the raw
+There is a function \link{pl_cache}, used to download the raw
 csv files. That function is run internally in these functions if you have
 not run it before, or if only some fo the files are present.
 }

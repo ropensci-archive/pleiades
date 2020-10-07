@@ -1,24 +1,23 @@
 #' Make an interactive map to view in the browser as a GitHub gist
 #'
 #' @export
-#' @param x Output from \code{\link{pl_places}}
+#' @param x Output from [pl_places()]
 #' @param file (character) File name (without file extension) for your geojson
 #' file. Default is 'gistmap'.
 #' @param description (character) Description for the Github gist, or leave
 #' to default (=no description)
-#' @param public (logical) Whether gist is public (default: TRUE)
-#' @param browse (logical) If TRUE (default) the map opens in your
+#' @param public (logical) Whether gist is public (default: `TRUE`)
+#' @param browse (logical) If `TRUE` (default) the map opens in your
 #' default browser.
 #' @param ... Curl options, see `curl::curl_options()`
 #'
 #' @details
 #' There are two ways to authorise gistr to work with your GitHub account:
-#' \itemize{
-#'  \item Generate a personal access token at
-#'https://help.github.com/articles/creating-an-access-token-for-command-line-use
+#' 
+#' - Generate a personal access token at
+#'https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
 #'and record in the GITHUB_PAT envar.
-#'  \item Interactively login into your GitHub account and authorise with OAuth
-#' }
+#' - Interactively login into your GitHub account and authorise with OAuth
 #'
 #' Using the GITHUB_PAT option is recommended.
 #'
