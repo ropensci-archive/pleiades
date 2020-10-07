@@ -1,3 +1,13 @@
+pleiades 0.3.0
+==============
+
+## MINOR IMPROVEMENTS
+
+* update readme and vignette
+* package docs to use markdown
+* now using vcr for tests
+
+
 pleiades 0.2.0
 ==============
 
