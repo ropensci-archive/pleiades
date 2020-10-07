@@ -3,7 +3,7 @@ pleiades
 
 
 
-[![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
+[![R-check](https://github.com/ropensci/pleiades/workflows/R-check/badge.svg)](https://github.com/ropensci/pleiades/actions?query=workflow%3AR-check)
 [![codecov](https://codecov.io/gh/ropensci/pleiades/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/pleiades)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/pleiades)](https://github.com/r-hub/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/pleiades)](https://cran.r-project.org/package=pleiades)
