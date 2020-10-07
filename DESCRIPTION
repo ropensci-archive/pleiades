@@ -26,6 +26,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
+    markdown,
     vcr
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
