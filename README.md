@@ -2,7 +2,7 @@ pleiades
 ========
 
 
-
+[![cran checks](https://cranchecks.info/badges/worst/pleiades)](https://cranchecks.info/pkgs/pleiades)
 [![R-check](https://github.com/ropensci/pleiades/workflows/R-check/badge.svg)](https://github.com/ropensci/pleiades/actions?query=workflow%3AR-check)
 [![codecov](https://codecov.io/gh/ropensci/pleiades/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/pleiades)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/pleiades)](https://github.com/r-hub/cranlogs.app)
