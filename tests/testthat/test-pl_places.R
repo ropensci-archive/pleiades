@@ -3,7 +3,9 @@ context("pl_places")
 test_that("pl_places works", {
   skip_on_cran()
 
-  aa <- pl_places(place_id = 462471)
+  vcr::use_cassette("pl_places", {
+    aa <- pl_places(place_id = 462471)
+  })
 
 	expect_is(aa, 'pleiades')
 	expect_is(unclass(aa), 'list')

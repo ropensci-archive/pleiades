@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pleiades.stoa.org/api/status
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 07 Oct 2020 16:10:07 GMT
+      server: Zope/(2.13.24, python 2.7.12, linux2) ZServer/1.1
+      content-length: '65'
+      cache-control: max-age=900, max-age=86400
+      x-frame-options: SAMEORIGIN
+      content-type: application/json
+      access-control-allow-origin: '*'
+      x-varnish: 2156845 2630481
+      age: '680'
+      via: 1.1 varnish-v4
+      x-varnish-cache: HIT
+      accept-ranges: bytes
+      expires: Thu, 08 Oct 2020 16:21:27 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"num_places": 37283, "num_locations": 40274, "num_names": 33346}'
+  recorded_at: 2020-10-07 16:21:28 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
