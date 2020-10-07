@@ -12,7 +12,7 @@ pl_cache_clear(which = NULL, prompt = TRUE)
 \arguments{
 \item{force}{(logical) Force update of the cache. Default: \code{FALSE}}
 
-\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
+\item{...}{Curl options, see \code{curl::curl_options()}}
 
 \item{which}{(character) One of locations, names, or places.}
 

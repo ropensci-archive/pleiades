@@ -9,7 +9,7 @@ pl_places(place_id, ...)
 \arguments{
 \item{place_id}{(integer/numeric) A place ID}
 
-\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
+\item{...}{Curl options, see \code{curl::curl_options()}}
 }
 \description{
 Get data for a place given a place ID

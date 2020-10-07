@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param force (logical) Force update of the cache. Default: \code{FALSE}
-#' @param ... Curl options, see \code{\link[curl]{curl_options}}
+#' @param ... Curl options, see `curl::curl_options()`
 #' @param which (character) One of locations, names, or places.
 #' @param prompt (logical) Prompt before clearing all files in cache?
 #' No prompt used when DOIs passed in. Default: \code{TRUE}

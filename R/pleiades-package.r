@@ -1,8 +1,8 @@
-#' \strong{pleiades}
+#' pleiades
+#' @description Interface to the Pleiades Archeological Database
 #'
-#' @name pleiades
 #' @name pleiades-package
 #' @aliases pleiades
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #' @docType package
 NULL

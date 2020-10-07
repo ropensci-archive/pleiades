@@ -4,24 +4,27 @@ Description: Provides a set of functions for interacting with the
     'Pleiades' (<https://pleiades.stoa.org/>) 'API', including 
     getting status data, places data, and creating a 'GeoJSON' 
     based map on 'GitHub' 'gists'.
-Version: 0.2.0.9100
+Version: 0.3.0
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
-URL: https://docs.ropensci.org/pleiades, https://github.com/ropensci/pleiades
+URL: https://docs.ropensci.org/pleiades/, https://github.com/ropensci/pleiades
 BugReports: https://github.com/ropensci/pleiades/issues
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Language: en-US
 Imports:
-    DBI (>= 0.6-1),
-    dplyr (>= 0.5.0),
-    dbplyr (>= 1.0.0),
-    RSQLite (>= 1.1-2),
-    crul (>= 0.3.6),
-    jsonlite (>= 1.5),
-    gistr (>= 0.4.0),
+    DBI,
+    dplyr,
+    dbplyr,
+    RSQLite,
+    crul,
+    jsonlite,
+    gistr,
     rappdirs
 Suggests:
-    roxygen2 (>= 6.0.1),
     testthat,
     knitr,
+    rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1

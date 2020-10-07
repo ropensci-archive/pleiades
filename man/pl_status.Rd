@@ -8,7 +8,7 @@ number of names}
 pl_status(...)
 }
 \arguments{
-\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
+\item{...}{Curl options, see \code{curl::curl_options()}}
 }
 \description{
 Get Pleiades status data, number of places, number of locations,

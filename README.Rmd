@@ -11,11 +11,11 @@ knitr::opts_chunk$set(
 ```
 
 [![Build Status](https://travis-ci.org/ropensci/pleiades.svg?branch=master)](https://travis-ci.org/ropensci/pleiades)
-[![codecov.io](https://codecov.io/github/ropensci/pleiades/coverage.svg?branch=master)](https://codecov.io/github/ropensci/pleiades?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/pleiades)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/pleiades)](https://cran.r-project.org/package=pleiades)
+[![codecov](https://codecov.io/gh/ropensci/pleiades/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/pleiades)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/pleiades)](https://github.com/r-hub/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/pleiades)](https://cran.r-project.org/package=pleiades)
 
-R client for [Pleiades](https://pleiades.stoa.org/home)
+R client for Pleiades (https://pleiades.stoa.org/home)
 
 ## Pleiades info
 
@@ -35,85 +35,18 @@ install.packages("pleiades")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github("ropensci/pleiades")
+remotes::install_github("ropensci/pleiades")
 ```
 
 ```{r}
 library("pleiades")
 ```
 
-## Status
-
-```{r}
-pl_status()
-```
-
-## Places
-
-`pl_places` uses the Pleiades API. Just a subst of output for brevity
-
-```{r}
-pl_places(place_id = 579885)[1:2]
-```
-
-## Search bulk files locally
-
-Pleiades nicely provides their bulk data (for locations, names, and places) in various formats, including `.csv`. We've created three functions `pl_search_loc()`, `pl_search_names()`, and `pl_search_places()` to search each of those datasets. As these are relatively large (approx 40K rows by 30 columns), `dplyr` is a nice approach to dealing with big-ish data. At this time `dplyr` is a dependency. 
-
-You can run `pl_cache()` first to get the raw data files from Pleiades
-
-```{r eval=FALSE}
-pl_cache()
-```
-
-Or, that function is run internally in `pl_search*()` functions for you.
-
-Search across all tables in one database, or separately locations, names, or places. You can return the data (that is, a `dplyr` representation of the data) if you don't pass anything to the function call:
-
-Gives each table in a list
-
-```{r search}
-pl_search()
-```
-
-Locations only
-
-```{r locations}
-pl_search_loc()
-```
-
-Or you can submit a query:
-
-```{r locations_query}
-pl_search_loc("SELECT * FROM locations limit 5")
-```
-
-Search names
-
-```{r names}
-pl_search_names("SELECT * FROM names limit 5")
-```
-
-Search places
-
-```{r places}
-pl_search_places("SELECT * FROM places limit 5")
-```
-
-## Create geojson map on Github Gists
-
-```{r eval=FALSE}
-res <- pl_places(place_id = 462471)
-pl_gist(res)
-```
-
-Which opens up the gist in your default browser, as long as `browse=TRUE` (default).
-
-![thing](http://f.cl.ly/items/251s021t0c020u0K3942/Screen%20Shot%202014-07-31%20at%2010.34.02%20AM.png)
-
 ### Meta
 
 * Please report any [issues or bugs](https://github.com/ropensci/pleiades/issues).
 * License: MIT
 * Get citation information for `pleiades` in R doing `citation(package = 'pleiades')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
+
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

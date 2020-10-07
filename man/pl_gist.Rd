@@ -4,8 +4,7 @@
 \alias{pl_gist}
 \title{Make an interactive map to view in the browser as a GitHub gist}
 \usage{
-pl_gist(x, file = NULL, description = "", public = TRUE, browse = TRUE,
-  ...)
+pl_gist(x, file = NULL, description = "", public = TRUE, browse = TRUE, ...)
 }
 \arguments{
 \item{x}{Output from \code{\link{pl_places}}}
@@ -21,7 +20,7 @@ to default (=no description)}
 \item{browse}{(logical) If TRUE (default) the map opens in your
 default browser.}
 
-\item{...}{Curl options, see \code{\link[curl]{curl_options}}}
+\item{...}{Curl options, see \code{curl::curl_options()}}
 }
 \value{
 Creates a gist on your GitHub account
@@ -32,10 +31,10 @@ Make an interactive map to view in the browser as a GitHub gist
 \details{
 There are two ways to authorise gistr to work with your GitHub account:
 \itemize{
- \item Generate a personal access token at
+\item Generate a personal access token at
 https://help.github.com/articles/creating-an-access-token-for-command-line-use
 and record in the GITHUB_PAT envar.
- \item Interactively login into your GitHub account and authorise with OAuth
+\item Interactively login into your GitHub account and authorise with OAuth
 }
 
 Using the GITHUB_PAT option is recommended.

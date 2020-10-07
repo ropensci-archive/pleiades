@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @param place_id (integer/numeric) A place ID
-#' @param ... Curl options, see \code{\link[curl]{curl_options}}
+#' @param ... Curl options, see `curl::curl_options()`
 #' @examples \dontrun{
 #' pl_places(place_id = 462471)
 #' }

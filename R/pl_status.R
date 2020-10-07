@@ -2,7 +2,7 @@
 #' number of names
 #'
 #' @export
-#' @param ... Curl options, see \code{\link[curl]{curl_options}}
+#' @param ... Curl options, see `curl::curl_options()`
 #' @examples \dontrun{
 #' pl_status()
 #' }

@@ -9,7 +9,7 @@
 #' @param public (logical) Whether gist is public (default: TRUE)
 #' @param browse (logical) If TRUE (default) the map opens in your
 #' default browser.
-#' @param ... Curl options, see \code{\link[curl]{curl_options}}
+#' @param ... Curl options, see `curl::curl_options()`
 #'
 #' @details
 #' There are two ways to authorise gistr to work with your GitHub account:
